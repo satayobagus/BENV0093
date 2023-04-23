@@ -1,0 +1,7 @@
+Bigger than 25 MB
+
+Land Cover:
+http://mercatorez.web.id/geodatabase/
+
+Indonesia SHP:
+https://data.humdata.org/dataset/cod-ab-idn
