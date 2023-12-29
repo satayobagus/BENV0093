@@ -52,9 +52,9 @@ ggplot()+
 #2. Parameter maps
 #2.1. Protected Areas
 #Import and combine SHP files
-protected0 <- read_sf(paste0(wd,"/WDPA_WDOECM_Apr2023_Public_IDN_shp/WDPA_WDOECM_Apr2023_Public_IDN_shp_0/WDPA_WDOECM_Apr2023_Public_IDN_shp-polygons.shp"))
-protected1 <- read_sf(paste0(wd,"/WDPA_WDOECM_Apr2023_Public_IDN_shp/WDPA_WDOECM_Apr2023_Public_IDN_shp_1/WDPA_WDOECM_Apr2023_Public_IDN_shp-polygons.shp"))
-protected2 <- read_sf(paste0(wd,"/WDPA_WDOECM_Apr2023_Public_IDN_shp/WDPA_WDOECM_Apr2023_Public_IDN_shp_2/WDPA_WDOECM_Apr2023_Public_IDN_shp-polygons.shp"))
+protected0 <- read_sf(paste0(wd,"/Protected Area/WDPA_WDOECM_Apr2023_Public_IDN_shp/WDPA_WDOECM_Apr2023_Public_IDN_shp_0/WDPA_WDOECM_Apr2023_Public_IDN_shp-polygons.shp"))
+protected1 <- read_sf(paste0(wd,"/Protected Area/WDPA_WDOECM_Apr2023_Public_IDN_shp/WDPA_WDOECM_Apr2023_Public_IDN_shp_1/WDPA_WDOECM_Apr2023_Public_IDN_shp-polygons.shp"))
+protected2 <- read_sf(paste0(wd,"/Protected Area/WDPA_WDOECM_Apr2023_Public_IDN_shp/WDPA_WDOECM_Apr2023_Public_IDN_shp_2/WDPA_WDOECM_Apr2023_Public_IDN_shp-polygons.shp"))
 protected <- rbind(protected0, protected1, protected2)
 rm(protected0)
 rm(protected1)
@@ -94,7 +94,7 @@ ggplot()+
 
 #2.3. Elevation and Slope
 #Import data and calculate slope
-indo_elevation <- rast(paste0(wd, "/IDN_alt/IDN_alt.vrt"))
+indo_elevation <- rast(paste0(wd, "/Altitude/IDN_alt.vrt"))
 indo_elevation <- mask(indo_elevation, indo)
 indo_slope = terrain(indo_elevation,v='slope',unit='degrees')
 
@@ -137,7 +137,7 @@ ggplot()+
 
 #2.5. Road
 #Search features of interests
-indo_road <- read_sf(paste0(wd,"/IDN_rds/IDN_roads.shp")) %>%
+indo_road <- read_sf(paste0(wd,"/Roads/IDN_roads.shp")) %>%
   filter(F_CODE_DES == "Road")
 indo_road <- st_transform(indo_road, st_crs(indo))
 
